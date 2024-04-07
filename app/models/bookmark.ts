@@ -6,10 +6,10 @@ export default class Bookmark extends BaseModel {
   declare id: number
 
   @column()
-  declare user_id: number
+  declare userId: number
 
   @column()
-  declare book_id: string
+  declare bookId: string
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
