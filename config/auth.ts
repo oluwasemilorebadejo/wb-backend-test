@@ -1,14 +1,13 @@
 import { defineConfig } from '@adonisjs/auth'
 import { InferAuthEvents, Authenticators } from '@adonisjs/auth/types'
-import { sessionGuard, sessionUserProvider } from '@adonisjs/auth/session'
+import { basicAuthGuard, basicAuthUserProvider } from '@adonisjs/auth/basic_auth'
 
 const authConfig = defineConfig({
-  default: 'web',
+  default: 'basicAuth',
   guards: {
-    web: sessionGuard({
-      useRememberMeTokens: false,
-      provider: sessionUserProvider({
-        model: () => import('#models/user')
+    basicAuth: basicAuthGuard({
+      provider: basicAuthUserProvider({
+        model: () => import('#models/user'),
       }),
     }),
   },
