@@ -21,20 +21,19 @@ A step-by-step series of examples that tell you how to get a development environ
 
 1.  **Clone the Repository**
 
-        ```bash
-
+```bash
     git clone [your-repository-url]
     cd [repository-name]
 
-````
+```
 
 2. **Install Dependencies**
 
    Navigate to your project directory and run:
 
-    ```bash
+```bash
    npm install
-````
+```
 
 3. **Environment Configuration**
 
@@ -101,3 +100,7 @@ Please read CONTRIBUTING.md for details on our code of conduct, and the process 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://chat.openai.com/c/LICENSE.md) file for details.
+
+```
+
+```
