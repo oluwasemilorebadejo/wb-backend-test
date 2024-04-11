@@ -7,6 +7,8 @@
 |
 */
 
+const BookmarksController = () => import('#controllers/bookmarks_controller')
+const AuthController = () => import('#controllers/auth_controller')
 import router from '@adonisjs/core/services/router'
 
 router.where('id', {
@@ -32,11 +34,7 @@ router
 
 router
   .group(() => {
-    router.get('/', async () => {
-      return {
-        bookmarks: ['bookmark1', '2', 'bookmark3'],
-      }
-    })
+    router.get('/', [BookmarksController, 'index'])
 
     router.delete('/:id', async ({ params }) => {
       return {
@@ -53,6 +51,10 @@ router
 //   }
 // })
 
-router.post('/api/v1/auth/signup', async () => {})
+router
+  .group(() => {
+    router.post('/signup', [AuthController, 'register'])
 
-router.get('/api/v1/auth/login', async () => {})
+    router.post('/login', [AuthController, 'login'])
+  })
+  .prefix('api/v1/auth')
