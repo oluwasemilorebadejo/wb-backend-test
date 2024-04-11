@@ -8,7 +8,7 @@ export default class AuthController {
     const payload = await request.validateUsing(createSignupValidator)
 
     // Check if User already exists
-    const existingUser = await User.query().where('email', payload.email)
+    const existingUser = await User.findBy('email', payload.email)
     if (existingUser) {
       return response.conflict('User already exists')
     }
