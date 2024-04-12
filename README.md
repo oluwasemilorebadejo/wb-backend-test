@@ -52,6 +52,7 @@ DB_DATABASE=[YourDatabaseName]
 SESSION_DRIVER=cookie
 REDIS_HOST=[YourRedisHost]
 REDIS_PORT=6379
+
 REDIS_PASSWORD=
 ```
 
