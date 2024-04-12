@@ -18,7 +18,7 @@ export default class CookieAuthMiddleware {
     // Get cookie parsed
     const authCookie = JWTService.decodeAuthCookie(ctx.request.cookie('auth_token'))
     if (!authCookie) {
-      return ctx.response.forbidden('Unauthorized')
+      return ctx.response.forbidden('Unauthorized. You must be logged in to perform this operation')
     }
     // Get user from cookie
     const user = await User.query()
