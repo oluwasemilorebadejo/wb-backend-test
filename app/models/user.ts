@@ -34,25 +34,6 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @hasMany(() => Bookmark)
   declare bookmarks: HasMany<typeof Bookmark>
 
-  // @beforeSave()
-  // static async hashPassword(user: User) {
-  //   if (user.$dirty.password) {
-  //     user.password = await hash.make(user.password)
-  //   }
-  // }
-
-  // static async verifyCredentials(email: string, password: string) {
-  //   const user = await this.query().where('email', email).first()
-  //   if (!user) {
-  //     throw new Error('Invalid user credentials')
-  //   }
-  //   const isValid = await hash.verify(user.password, password)
-  //   if (!isValid) {
-  //     throw new Error('Invalid user credentials')
-  //   }
-  //   return user
-  // }
-
   generateAuthCookieToken() {
     return JWTService.encodeAuthCookie({
       id: this.id,
