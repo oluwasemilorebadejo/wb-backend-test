@@ -43,7 +43,7 @@ export default class BooksController {
         },
       }
 
-      // cache the new data
+      // cache the new data for 30mins
       await redis.set(cacheKey, JSON.stringify(booksData), 'EX', 1800) // 1800 seconds = 30 minutes
 
       return response.ok(booksData)
