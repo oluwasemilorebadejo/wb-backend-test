@@ -23,31 +23,10 @@ router
       return 'Hello world from the home page.'
     })
 
-    // USERS
-    // router
-    //   .group(() => {
-    //     // GET ALL
-    //     router.get("/", [UsersController, "all"]);
-    //     // GET BY ID
-    //     router.get("/:id", [UsersController, "show"]);
-    //     // CREATE
-    //     router.post("/", [UsersController, "store"]);
-    //     // EDIT
-    //     router.put("/:id", [UsersController, "putProfile"]);
-    //     // DELETE
-    //     router.delete("/:id", [UsersController, "destroy"]);
-    //   })
-    //   .prefix("/users")
-    //   .use(
-    //     middleware.cookieAuth({
-    //       roles: [UserRole.ADMIN],
-    //     })
-    //   );
-
     // USER
     router
       .group(() => {
-        // UNAUTH ACCOUNT
+        // UNAUTHOURIZED ROUTES
         router.post('/login', [AuthController, 'login'])
         router.delete('/logout', [AuthController, 'logout'])
         router.post('/signup', [AuthController, 'register'])
@@ -56,7 +35,7 @@ router
 
     router
       .group(() => {
-        // AUTH ACCOUNT
+        // AUTHOURIZED ROUTES
         router.get('/my-bookmarks', [BookmarksController, 'index'])
         router.post('/:bookId', [BookmarksController, 'store'])
         router.delete('/:bookId', [BookmarksController, 'destroy'])
