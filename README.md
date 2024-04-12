@@ -45,12 +45,14 @@ HOST=localhost
 NODE_ENV=development
 APP_KEY=[YourAppKey]
 DB_HOST=[YourDatabaseHost]
-DB_PORT=3306 DB_USER=[YourDatabaseUser]
+DB_PORT=3306
+DB_USER=[YourDatabaseUser]
 DB_PASSWORD=[YourDatabasePassword]
 DB_DATABASE=[YourDatabaseName]
 SESSION_DRIVER=cookie
 REDIS_HOST=[YourRedisHost]
-REDIS_PORT=6379 REDIS_PASSWORD=
+REDIS_PORT=6379
+REDIS_PASSWORD=
 ```
 
 4. **Database Migrations**
@@ -84,11 +86,3 @@ This will start the server on `localhost:3333` (or whatever PORT you've defined 
 - AdonisJS - The web framework used
 - MySQL - Database
 - Redis - Session Management/Caching
-
-## Authors
-
-- **Oluwasemilore** - _Initial work_ - [YourUsername](https://github.com/oluwasemilorebadejo)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](https://chat.openai.com/c/LICENSE.md) file for details.
