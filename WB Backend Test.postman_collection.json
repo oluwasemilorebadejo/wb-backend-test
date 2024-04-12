@@ -1,0 +1,551 @@
+{
+	"info": {
+		"_postman_id": "7f9df9f0-09d7-4094-9b06-0dc0cc16758b",
+		"name": "WB Backend Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22556744"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign up new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"blac\",\r\n    \"email\": \"badejo.semilore.7@gmail.com\",\r\n    \"password\": \"anjolabadejo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sign up new user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"blac\",\r\n    \"email\": \"badejo.semilore.7@gmail.com\",\r\n    \"password\": \"anjolabadejo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3333/api/v1/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "226"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Apr 2024 08:52:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User sucessfully created\",\n    \"data\": {\n        \"user\": {\n            \"username\": \"blac\",\n            \"email\": \"badejo.semilore.7@gmail.com\",\n            \"createdAt\": \"2024-04-12T08:52:55.458+00:00\",\n            \"updatedAt\": \"2024-04-12T08:52:55.459+00:00\",\n            \"id\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Log in user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"badejo.semilore.7@gmail.com\",\r\n    \"password\": \"anjolabadejo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/api/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Search for from google books api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/api/v1/books?q=python&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"books"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "python"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						},
+						"description": "### Overview\n\nThis API endpoint allows you to search for books by title, author, or other keywords. It queries the Google Books API to fetch relevant book information based on your search criteria.\n\n### HTTP Request\n\n`GET http://localhost:3333/api/v1/books`\n\n### Query Parameters\n\n| Parameter | Description | Required | Type | Example |\n| --- | --- | --- | --- | --- |\n| `q` | Query text to search for books. This can include titles, authors, or keywords. | Yes | string | `python` |\n| `page` | The page number of the search results you wish to retrieve. Each page contains a fixed number of results. | No | integer | `2` |"
+					},
+					"response": [
+						{
+							"name": "Search for from google books api",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/api/v1/books?q=python&page=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"books"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "python"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "38185"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Apr 2024 09:33:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Books retrieved successfully\",\n    \"data\": {\n        \"currentPage\": 1,\n        \"pageSize\": 10,\n        \"totalPages\": 144,\n        \"totalItems\": 1439,\n        \"books\": [\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"6yPonAAACAAJ\",\n                \"etag\": \"KoTM/TWeY+E\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/6yPonAAACAAJ\",\n                \"volumeInfo\": {\n                    \"title\": \"Python\",\n                    \"subtitle\": \"The No-Nonsense Guide: Learn Python Programming Within 12 Hours!\",\n                    \"authors\": [\n                        \"Cyberpunk University\"\n                    ],\n                    \"publisher\": \"Createspace Independent Publishing Platform\",\n                    \"publishedDate\": \"2017-01-17\",\n                    \"description\": \"LIMITED TIME OFFER: Python eBook: $4.99 NOW $2.99! Python Paperback: $24.23 NOW $14.23! Learn How To Program With Python In Only 12 Hours! What if you could automate your life to make it much easier? How about, building your own API's, messaging bots or create an automated coffee machine to make you coffee at the right time with the perfect temperature. Sounds good? This is just a fraction of what you could do with Python and we would love to show you how in just 12 Hours! Bullsh*t you say? Here at Cyberpunk University, we believe that we have the ability to learn Python to anybody within 12 hours. We know how quite tricky it is to learn and be a master of any programming language. Our team is comprised of professionals who have been in the industry of information technology for decades and our experience made us able to create information products such as this step-by-step guide. We took out all the bullsh*t and tell you what to do, and more important, HOW TO DO IT! What will you find in this book: - How to setup the programming language of the future - How to run Hello World the RIGHTWAY - How to use all the different data types in Python - Exercises at the end of each chapter to help you master Python - How to handle errors and exceptions when writing a program - How you can test your programs - BONUS: Compilation of valuable links and tutorials to further develop your python skills - BONUS: The FREE Cyberpunk Python Whizz Kit including, a Python Cheat sheet and 50+ Free Python exercises you can use however you want. Buy This Book NOW To Learn How To Program With Python in Only 12 Hours! Pick up your copy today by clicking the BUY NOW button at the top of this page!\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"1542589401\"\n                        },\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9781542589406\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": false,\n                        \"image\": false\n                    },\n                    \"pageCount\": 130,\n                    \"printType\": \"BOOK\",\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": false,\n                    \"contentVersion\": \"preview-1.0.0\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=6yPonAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=6yPonAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=6yPonAAACAAJ&dq=python&hl=&cd=1&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=6yPonAAACAAJ&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Python.html?hl=&id=6yPonAAACAAJ\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"NO_PAGES\",\n                    \"embeddable\": false,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED\",\n                    \"epub\": {\n                        \"isAvailable\": false\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": false\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=6yPonAAACAAJ&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"NONE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"This is just a fraction of what you could do with Python and we would love to show you how in just 12 Hours! Bullsh*t you say? Here at Cyberpunk University, we believe that we have the ability to learn Python to anybody within 12 hours.\"\n                }\n            },\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"FQlBEAAAQBAJ\",\n                \"etag\": \"I4Jvm1Uty40\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/FQlBEAAAQBAJ\",\n                \"volumeInfo\": {\n                    \"title\": \"Dancing with Python\",\n                    \"subtitle\": \"Learn to code with Python and Quantum Computing\",\n                    \"authors\": [\n                        \"Robert S. Sutor\"\n                    ],\n                    \"publisher\": \"Packt Publishing Ltd\",\n                    \"publishedDate\": \"2021-08-31\",\n                    \"description\": \"Develop skills in Python and Quantum Computing by implementing exciting algorithms, mathematical functions, classical searching, data analysis, plotting data, machine learning techniques, and quantum circuits. Key FeaturesCreate quantum circuits and algorithms using Qiskit and run them on quantum computing hardware and simulatorsLearn the Pythonic way to write elegant and efficient codeDelve into Python's advanced features, including machine learning, analyzing data, and searchingBook Description Dancing with Python helps you learn Python and quantum computing in a practical way. It will help you explore how to work with numbers, strings, collections, iterators, and files. The book goes beyond functions and classes and teaches you to use Python and Qiskit to create gates and circuits for classical and quantum computing. Learn how quantum extends traditional techniques using the Grover Search Algorithm and the code that implements it. Dive into some advanced and widely used applications of Python and revisit strings with more sophisticated tools, such as regular expressions and basic natural language processing (NLP). The final chapters introduce you to data analysis, visualizations, and supervised and unsupervised machine learning. By the end of the book, you will be proficient in programming the latest and most powerful quantum computers, the Pythonic way. What you will learnExplore different quantum gates and build quantum circuits with Qiskit and PythonWrite succinct code the Pythonic way using magic methods, iterators, and generatorsAnalyze data, build basic machine learning models, and plot the resultsSearch for information using the quantum Grover Search AlgorithmOptimize and test your code to run efficientlyWho this book is for The book will help you get started with coding for Python and Quantum Computing. Basic familiarity with algebra, geometry, trigonometry, and logarithms is required as the book does not cover the detailed mathematics and theory of quantum computing. You can check out the author's Dancing with Qubits book, also published by Packt, for an approachable and comprehensive introduction to quantum computing.\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9781801071628\"\n                        },\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"1801071624\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": true,\n                        \"image\": true\n                    },\n                    \"pageCount\": 745,\n                    \"printType\": \"BOOK\",\n                    \"categories\": [\n                        \"Computers\"\n                    ],\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": false,\n                    \"contentVersion\": \"1.5.5.0.preview.3\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=FQlBEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=FQlBEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=FQlBEAAAQBAJ&printsec=frontcover&dq=python&hl=&cd=2&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=FQlBEAAAQBAJ&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Dancing_with_Python.html?hl=&id=FQlBEAAAQBAJ\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"PARTIAL\",\n                    \"embeddable\": true,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED\",\n                    \"epub\": {\n                        \"isAvailable\": true\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": true\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=FQlBEAAAQBAJ&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"SAMPLE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"What you will learnExplore different quantum gates and build quantum circuits with Qiskit and PythonWrite succinct code the Pythonic way using magic methods, iterators, and generatorsAnalyze data, build basic machine learning models, and ...\"\n                }\n            },\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"JmE4zgEACAAJ\",\n                \"etag\": \"40s0RCzHY/0\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/JmE4zgEACAAJ\",\n                \"volumeInfo\": {\n                    \"title\": \"Python Programming\",\n                    \"subtitle\": \"This Book Includes: Python for Beginners - Python for Data Science\",\n                    \"authors\": [\n                        \"Daniel O'Reilly\"\n                    ],\n                    \"publishedDate\": \"2021-02-08\",\n                    \"description\": \"★ 55% OFF for Bookstores! NOW at $45.95 instead of $55.95★ Would You Like to Know How to Automate Boring Stuff Quickly? Discover the Easiest Way to Learn Everything About Python and Machine Learning! Are you ready to embark on a great journey through the incredible world of Python and data science? If you are reading this, you probably have a keen interest in programming and computer science. You like to know how things work, and you want to make them work as efficiently as possible, right? If so, then Python is the perfect programming language for you to learn! Would you like to: Learn how programming in Python works? Learn to automate tasks with Python? Bring your ideas to life faster and monetize them easily? But you: Have no prior knowledge about Python? Are a little bit afraid because it seems complicated? Well, if the answer to any question is \\\"yes,\\\" then the solution you are looking for is right in front of you. With this incredible bundle in your hands, you will go from beginner to pro in no time. The guides found inside this bundle are designed explicitly for people with little or no prior knowledge about Python programming. Every manual is written in a step-by-step and easy to digest manner so that you can understand Python without any trouble. Here's what this bundle about Python programming and data science can offer you: Basics of programming with Python: A comprehensive guide on how to get everything up and running. Essential tools guide: Learn how to use the best tools that are available for programming with Python. Programming made easy: Quick and easy way to learn how to make amazing and useful programs. Mastering the art of programming: Find out how to go from beginner to pro in no time with unique coding methods. Practical techniques and exercises: Put your knowledge to test and bring your ideas to life in no time. It doesn't matter if you are a beginner or you have never coded before; this guide will slowly ease you into the world of Python and data science. While most of the other similar books focus purely on theory and complicated concepts, these guides focus on a more practical approach to learning Python and data science. First of all, you'll learn basic programming concepts, such as variables, lists, classes, and loops. Then you will practice clean code writing and how to test your code safely. After that, you'll be able to put your knowledge to the test with some practical projects. Here is what else this bundle will show you: The basics of data types, variables, and structures How to properly define the data type of data structure Suitable types of operations and functions for data structuring Methods and applications of data analysis The basics of neural networks and how to create one Use of algorithm and models in data science Using data for prediction and deep learning The best thing about Python is that it's easy to learn and even easier to get up and running. By using tools like Django, for example, you can quickly bring your ideas and creations to life and start monetizing them in no time. The second best thing about learning how to program in Python is the advantage you'll have when you start learning other programming languages-after you master Python, learning different programming languages will be a piece of cake. If you want to conquer the Python programming language in no time, all you have to do is take these guides in your hands and follow the step-by-step instructions. Get Your Copy Now!\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"180182603X\"\n                        },\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9781801826037\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": false,\n                        \"image\": false\n                    },\n                    \"pageCount\": 292,\n                    \"printType\": \"BOOK\",\n                    \"categories\": [\n                        \"Computers\"\n                    ],\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": false,\n                    \"contentVersion\": \"preview-1.0.0\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=JmE4zgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=JmE4zgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=JmE4zgEACAAJ&dq=python&hl=&cd=3&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=JmE4zgEACAAJ&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Python_Programming.html?hl=&id=JmE4zgEACAAJ\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"NO_PAGES\",\n                    \"embeddable\": false,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED\",\n                    \"epub\": {\n                        \"isAvailable\": false\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": false\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=JmE4zgEACAAJ&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"NONE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"If you want to conquer the Python programming language in no time, all you have to do is take these guides in your hands and follow the step-by-step instructions. Get Your Copy Now!\"\n                }\n            },\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"mh0bU6NXrBgC\",\n                \"etag\": \"v1msmS8p/Ho\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/mh0bU6NXrBgC\",\n                \"volumeInfo\": {\n                    \"title\": \"Core Python Programming\",\n                    \"authors\": [\n                        \"Wesley Chun\"\n                    ],\n                    \"publisher\": \"Prentice Hall Professional\",\n                    \"publishedDate\": \"2001\",\n                    \"description\": \"Experts and novices alike will be able to find information about every command they'll need to use Linux. This complete, practical desk reference is organized by function, with a road map-style alphabetical reference for quick access of information about all aspects of running and administering the program. The CD-ROM contains Windows and Linux Python distributions plus extensive cross-platform source code from the book.\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9780130260369\"\n                        },\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"0130260363\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": false,\n                        \"image\": true\n                    },\n                    \"pageCount\": 805,\n                    \"printType\": \"BOOK\",\n                    \"categories\": [\n                        \"Computers\"\n                    ],\n                    \"averageRating\": 3.5,\n                    \"ratingsCount\": 12,\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": false,\n                    \"contentVersion\": \"0.3.2.0.preview.1\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=mh0bU6NXrBgC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=mh0bU6NXrBgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=mh0bU6NXrBgC&printsec=frontcover&dq=python&hl=&cd=4&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=mh0bU6NXrBgC&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Core_Python_Programming.html?hl=&id=mh0bU6NXrBgC\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"PARTIAL\",\n                    \"embeddable\": true,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED_FOR_ACCESSIBILITY\",\n                    \"epub\": {\n                        \"isAvailable\": false\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": false\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=mh0bU6NXrBgC&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"SAMPLE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"The CD-ROM contains Windows and Linux Python distributions plus extensive cross-platform source code from the book.\"\n                }\n            },\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"ftA0yk1Z92wC\",\n                \"etag\": \"ooq87HWhVYE\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/ftA0yk1Z92wC\",\n                \"volumeInfo\": {\n                    \"title\": \"Learning Python\",\n                    \"authors\": [\n                        \"Mark Lutz\",\n                        \"David Ascher\"\n                    ],\n                    \"publisher\": \"\\\"O'Reilly Media, Inc.\\\"\",\n                    \"publishedDate\": \"2003-12-23\",\n                    \"description\": \"Portable, powerful, and a breeze to use, Python is the popular open source object-oriented programming language used for both standalone programs and scripting applications. Python is considered easy to learn, but there's no quicker way to mastery of the language than learning from an expert teacher. This edition of Learning Python puts you in the hands of two expert teachers, Mark Lutz and David Ascher, whose friendly, well-structured prose has guided many a programmer to proficiency with the language. Learning Python, Second Edition, offers programmers a comprehensive learning tool for Python and object-oriented programming. Thoroughly updated for the numerous language and class presentation changes that have taken place since the release of the first edition in 1999, this guide introduces the basic elements of the latest release of Python 2.3 and covers new features, such as list comprehensions, nested scopes, and iterators/generators. Beyond language features, this edition of Learning Python also includes new context for less-experienced programmers, including fresh overviews of object-oriented programming and dynamic typing, new discussions of program launch and configuration options, new coverage of documentation sources, and more. There are also new use cases throughout to make the application of language features more concrete. The first part of Learning Python gives programmers all the information they'll need to understand and construct programs in the Python language, including types, operators, statements, classes, functions, modules and exceptions. The authors then present more advanced material, showing how Python performs common tasks by offering real applications and the libraries available for those applications. Each chapter ends with a series of exercises that will test your Python skills and measure your understanding. Learning Python, Second Edition is a self-paced book that allows readers to focus on the core Python language in depth. As you work through the book, you'll gain a deep and complete understanding of the Python language that will help you to understand the larger application-level examples that you'll encounter on your own. If you're interested in learning Python--and want to do so quickly and efficiently--then Learning Python, Second Edition is your best choice.\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9780596551933\"\n                        },\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"0596551932\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": true,\n                        \"image\": true\n                    },\n                    \"pageCount\": 624,\n                    \"printType\": \"BOOK\",\n                    \"categories\": [\n                        \"Computers\"\n                    ],\n                    \"averageRating\": 4,\n                    \"ratingsCount\": 16,\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": true,\n                    \"contentVersion\": \"0.5.4.0.preview.3\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=ftA0yk1Z92wC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=ftA0yk1Z92wC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=ftA0yk1Z92wC&printsec=frontcover&dq=python&hl=&cd=5&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=ftA0yk1Z92wC&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Learning_Python.html?hl=&id=ftA0yk1Z92wC\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"PARTIAL\",\n                    \"embeddable\": true,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED\",\n                    \"epub\": {\n                        \"isAvailable\": true\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": true\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=ftA0yk1Z92wC&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"SAMPLE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"This edition of Learning Python puts you in the hands of two expert teachers, Mark Lutz and David Ascher, whose friendly, well-structured prose has guided many a programmer to proficiency with the language.\"\n                }\n            },\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"rtJCEAAAQBAJ\",\n                \"etag\": \"7HBSGVdkz3g\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/rtJCEAAAQBAJ\",\n                \"volumeInfo\": {\n                    \"title\": \"Python for Geeks\",\n                    \"subtitle\": \"Build production-ready applications using advanced Python concepts and industry best practices\",\n                    \"authors\": [\n                        \"Muhammad Asif\"\n                    ],\n                    \"publisher\": \"Packt Publishing Ltd\",\n                    \"publishedDate\": \"2021-10-20\",\n                    \"description\": \"Take your Python skills to the next level to develop scalable, real-world applications for local as well as cloud deployment Key FeaturesAll code examples have been tested with Python 3.7 and Python 3.8 and are expected to work with any future 3.x releaseLearn how to build modular and object-oriented applications in PythonDiscover how to use advanced Python techniques for the cloud and clustersBook Description Python is a multipurpose language that can be used for multiple use cases. Python for Geeks will teach you how to advance in your career with the help of expert tips and tricks. You'll start by exploring the different ways of using Python optimally, both from the design and implementation point of view. Next, you'll understand the life cycle of a large-scale Python project. As you advance, you'll focus on different ways of creating an elegant design by modularizing a Python project and learn best practices and design patterns for using Python. You'll also discover how to scale out Python beyond a single thread and how to implement multiprocessing and multithreading in Python. In addition to this, you'll understand how you can not only use Python to deploy on a single machine but also use clusters in private as well as in public cloud computing environments. You'll then explore data processing techniques, focus on reusable, scalable data pipelines, and learn how to use these advanced techniques for network automation, serverless functions, and machine learning. Finally, you'll focus on strategizing web development design using the techniques and best practices covered in the book. By the end of this Python book, you'll be able to do some serious Python programming for large-scale complex projects. What you will learnUnderstand how to design and manage complex Python projectsStrategize test-driven development (TDD) in PythonExplore multithreading and multiprogramming in PythonUse Python for data processing with Apache Spark and Google Cloud Platform (GCP)Deploy serverless programs on public clouds such as GCPUse Python to build web applications and application programming interfacesApply Python for network automation and serverless functionsGet to grips with Python for data analysis and machine learningWho this book is for This book is for intermediate-level Python developers in any field who are looking to build their skills to develop and manage large-scale complex projects. Developers who want to create reusable modules and Python libraries and cloud developers building applications for cloud deployment will also find this book useful. Prior experience with Python will help you get the most out of this book.\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9781801073356\"\n                        },\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"180107335X\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": true,\n                        \"image\": true\n                    },\n                    \"pageCount\": 546,\n                    \"printType\": \"BOOK\",\n                    \"categories\": [\n                        \"Computers\"\n                    ],\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": false,\n                    \"contentVersion\": \"0.2.0.0.preview.3\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=rtJCEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=rtJCEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=rtJCEAAAQBAJ&printsec=frontcover&dq=python&hl=&cd=6&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=rtJCEAAAQBAJ&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Python_for_Geeks.html?hl=&id=rtJCEAAAQBAJ\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"PARTIAL\",\n                    \"embeddable\": true,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED\",\n                    \"epub\": {\n                        \"isAvailable\": true\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": true\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=rtJCEAAAQBAJ&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"SAMPLE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"Developers who want to create reusable modules and Python libraries and cloud developers building applications for cloud deployment will also find this book useful. Prior experience with Python will help you get the most out of this book.\"\n                }\n            },\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"H9emM_LGFDEC\",\n                \"etag\": \"TS4JltV2K5o\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/H9emM_LGFDEC\",\n                \"volumeInfo\": {\n                    \"title\": \"Programming in Python 3\",\n                    \"subtitle\": \"A Complete Introduction to the Python Language\",\n                    \"authors\": [\n                        \"Mark Summerfield\"\n                    ],\n                    \"publisher\": \"Addison-Wesley Professional\",\n                    \"publishedDate\": \"2010\",\n                    \"description\": \"Now fully updated, this edition brings together all the knowledge needed to write programs, use any library, and even create new library modules. The book teaches every aspect of the Python 3 language and covers all the built-in functionality.\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9780321680563\"\n                        },\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"0321680561\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": false,\n                        \"image\": true\n                    },\n                    \"pageCount\": 648,\n                    \"printType\": \"BOOK\",\n                    \"categories\": [\n                        \"Object-oriented programming (Computer science).\"\n                    ],\n                    \"averageRating\": 5,\n                    \"ratingsCount\": 1,\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": false,\n                    \"contentVersion\": \"preview-1.0.0\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=H9emM_LGFDEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=H9emM_LGFDEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=H9emM_LGFDEC&printsec=frontcover&dq=python&hl=&cd=7&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=H9emM_LGFDEC&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Programming_in_Python_3.html?hl=&id=H9emM_LGFDEC\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"PARTIAL\",\n                    \"embeddable\": true,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED_FOR_ACCESSIBILITY\",\n                    \"epub\": {\n                        \"isAvailable\": false\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": false\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=H9emM_LGFDEC&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"SAMPLE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"Now fully updated, this edition brings together all the knowledge needed to write programs, use any library, and even create new library modules.\"\n                }\n            },\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"Oj-93sg1GYwC\",\n                \"etag\": \"OI4hmGyvpwg\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/Oj-93sg1GYwC\",\n                \"volumeInfo\": {\n                    \"title\": \"Beginning Python\",\n                    \"authors\": [\n                        \"Peter C. Norton\",\n                        \"Alex Samuel\",\n                        \"Dave Aitel\",\n                        \"Eric Foster-Johnson\",\n                        \"Leonard Richardson\",\n                        \"Jason Diamond\",\n                        \"Aleatha Parker\",\n                        \"Michael Roberts\"\n                    ],\n                    \"publisher\": \"John Wiley & Sons\",\n                    \"publishedDate\": \"2008-05-05\",\n                    \"description\": \"This tutorial offers readers a thorough introduction to programming in Python 2.4, the portable, interpreted, object-oriented programming language that combines power with clear syntax Beginning programmers will quickly learn to develop robust, reliable, and reusable Python applications for Web development, scientific applications, and system tasks for users or administrators Discusses the basics of installing Python as well as the new features of Python release 2.4, which make it easier for users to create scientific and Web applications Features examples of various operating systems throughout the book, including Linux, Mac OS X/BSD, and Windows XP\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9780470368305\"\n                        },\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"0470368306\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": false,\n                        \"image\": true\n                    },\n                    \"pageCount\": 689,\n                    \"printType\": \"BOOK\",\n                    \"categories\": [\n                        \"Computers\"\n                    ],\n                    \"averageRating\": 4,\n                    \"ratingsCount\": 3,\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": false,\n                    \"contentVersion\": \"1.3.3.0.preview.1\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=Oj-93sg1GYwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=Oj-93sg1GYwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=Oj-93sg1GYwC&printsec=frontcover&dq=python&hl=&cd=8&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=Oj-93sg1GYwC&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Beginning_Python.html?hl=&id=Oj-93sg1GYwC\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"PARTIAL\",\n                    \"embeddable\": true,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED\",\n                    \"epub\": {\n                        \"isAvailable\": false\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": true,\n                        \"acsTokenLink\": \"http://books.google.com/books/download/Beginning_Python-sample-pdf.acsm?id=Oj-93sg1GYwC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api\"\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=Oj-93sg1GYwC&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"SAMPLE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"With this book, you&#39;ll learn how to program using the latest release — Python 2.4 — and create robust, reliable, and reusable Python applications.\"\n                }\n            },\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"y9TEDwAAQBAJ\",\n                \"etag\": \"xRHyupHbWdo\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/y9TEDwAAQBAJ\",\n                \"volumeInfo\": {\n                    \"title\": \"Python for Professionals\",\n                    \"subtitle\": \"Learning Python as a Second Language\",\n                    \"authors\": [\n                        \"Matt Telles\"\n                    ],\n                    \"publisher\": \"BPB Publications\",\n                    \"publishedDate\": \"2019-12-18\",\n                    \"description\": \"Learn to be a Python expert in ten easy lessons DESCRIPTIONÊ This book is intended for the professional programmer who wants to learn Python for their place of business, or simply to extend their knowledge. You will learn the basics of the language--from how to define variables and implement looping and conditional constructs, to working with existing code. Once we have established the baseline for writing code in Python, youÕll learn how to create your own functions and classes, how to extend existing code, and how to work with Python-specific things like comprehensions and generators. With a solid foundation, you will then move on to learn about the existing Python libraries, called packages, and how to use them, as well as discovering little tips and tricks that will make you a hit with all the programmers at work, and really aid you in nailing that programming interview. KEY FEATURESÊ Acquire knowledge of Python programming simply and easily. Learn about object-oriented programming and how it applies to Python. Make a splash with list comprehensions, generators, and decorators. Learn about file processing with Python, and how it makes JSON easy to deal with. Work with dictionaries and sets quickly and easily. Learn about what others have made available in the Python world. Pick up tricks and tips that will make you look like a Python expert in no time. WHAT WILL YOU LEARNÊ By the time you have finished this book, you will know enough to write complex Python programs and work with existing Python code. You will find out about the packages that make Python one of the most popular programming languages and will understand the ÒPythonicÓ way of thinking and programming. WHO THIS BOOK IS FORÊÊ This book is designed for programmers who have experience in at least one programming language. No prior Python experience is necessary, but it is assumed that you understand the basics of loops, conditionals and object-oriented constructs, such as classes. You should have or have access to a system that runs Python 3 (any version). Table of Contents 1. The history and installation of Python 2. Python types and constructs 3. The Nuts and Bolts 4. Structuring your Python projects 5. Object-oriented programming with Python 6. Advanced manipulations 7. File input and output 8. Imports and Exports 9. Miscellaneous 10. Not re-inventing the wheel 11. Tips and Tricks\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9789389423754\"\n                        },\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"9389423759\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": true,\n                        \"image\": true\n                    },\n                    \"pageCount\": 365,\n                    \"printType\": \"BOOK\",\n                    \"categories\": [\n                        \"Computers\"\n                    ],\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": false,\n                    \"contentVersion\": \"1.1.1.0.preview.3\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=y9TEDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=y9TEDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=y9TEDwAAQBAJ&printsec=frontcover&dq=python&hl=&cd=9&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=y9TEDwAAQBAJ&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Python_for_Professionals.html?hl=&id=y9TEDwAAQBAJ\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"PARTIAL\",\n                    \"embeddable\": true,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED\",\n                    \"epub\": {\n                        \"isAvailable\": true,\n                        \"acsTokenLink\": \"http://books.google.com/books/download/Python_for_Professionals-sample-epub.acsm?id=y9TEDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api\"\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": true,\n                        \"acsTokenLink\": \"http://books.google.com/books/download/Python_for_Professionals-sample-pdf.acsm?id=y9TEDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api\"\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=y9TEDwAAQBAJ&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"SAMPLE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"Learn to be a Python expert in ten easy lessons DESCRIPTIONÊ This book is intended for the professional programmer who wants to learn Python for their place of business, or simply to extend their knowledge.\"\n                }\n            },\n            {\n                \"kind\": \"books#volume\",\n                \"id\": \"RQ6xDwAAQBAJ\",\n                \"etag\": \"/aOu8yqFJKo\",\n                \"selfLink\": \"https://www.googleapis.com/books/v1/volumes/RQ6xDwAAQBAJ\",\n                \"volumeInfo\": {\n                    \"title\": \"Automate the Boring Stuff with Python, 2nd Edition\",\n                    \"subtitle\": \"Practical Programming for Total Beginners\",\n                    \"authors\": [\n                        \"Al Sweigart\"\n                    ],\n                    \"publisher\": \"No Starch Press\",\n                    \"publishedDate\": \"2019-11-12\",\n                    \"description\": \"Learn how to code while you write programs that effortlessly perform useful feats of automation! The second edition of this international fan favorite includes a brand-new chapter on input validation, Gmail and Google Sheets automations, tips for updating CSV files, and more. If you've ever spent hours renaming files or updating spreadsheet cells, you know how tedious tasks like these can be. But what if you could have your computer do them for you? Automate the Boring Stuff with Python, 2nd Edition teaches even the technically uninclined how to write programs that do in minutes what would take hours to do by hand—no prior coding experience required! This new, fully revised edition of Al Sweigart’s bestselling Pythonic classic, Automate the Boring Stuff with Python, covers all the basics of Python 3 while exploring its rich library of modules for performing specific tasks, like scraping data off the Web, filling out forms, renaming files, organizing folders, sending email responses, and merging, splitting, or encrypting PDFs. There’s also a brand-new chapter on input validation, tutorials on automating Gmail and Google Sheets, tips on automatically updating CSV files, and other recent feats of automations that improve your efficiency. Detailed, step-by-step instructions walk you through each program, allowing you to create useful tools as you build out your programming skills, and updated practice projects at the end of each chapter challenge you to improve those programs and use your newfound skills to automate similar tasks. Boring tasks no longer have to take to get through—and neither does learning Python!\",\n                    \"industryIdentifiers\": [\n                        {\n                            \"type\": \"ISBN_13\",\n                            \"identifier\": \"9781593279936\"\n                        },\n                        {\n                            \"type\": \"ISBN_10\",\n                            \"identifier\": \"1593279930\"\n                        }\n                    ],\n                    \"readingModes\": {\n                        \"text\": true,\n                        \"image\": false\n                    },\n                    \"pageCount\": 593,\n                    \"printType\": \"BOOK\",\n                    \"categories\": [\n                        \"Computers\"\n                    ],\n                    \"maturityRating\": \"NOT_MATURE\",\n                    \"allowAnonLogging\": true,\n                    \"contentVersion\": \"1.3.3.0.preview.2\",\n                    \"panelizationSummary\": {\n                        \"containsEpubBubbles\": false,\n                        \"containsImageBubbles\": false\n                    },\n                    \"imageLinks\": {\n                        \"smallThumbnail\": \"http://books.google.com/books/content?id=RQ6xDwAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api\",\n                        \"thumbnail\": \"http://books.google.com/books/content?id=RQ6xDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api\"\n                    },\n                    \"language\": \"en\",\n                    \"previewLink\": \"http://books.google.com/books?id=RQ6xDwAAQBAJ&dq=python&hl=&cd=10&source=gbs_api\",\n                    \"infoLink\": \"http://books.google.com/books?id=RQ6xDwAAQBAJ&dq=python&hl=&source=gbs_api\",\n                    \"canonicalVolumeLink\": \"https://books.google.com/books/about/Automate_the_Boring_Stuff_with_Python_2n.html?hl=&id=RQ6xDwAAQBAJ\"\n                },\n                \"saleInfo\": {\n                    \"country\": \"NG\",\n                    \"saleability\": \"NOT_FOR_SALE\",\n                    \"isEbook\": false\n                },\n                \"accessInfo\": {\n                    \"country\": \"NG\",\n                    \"viewability\": \"NO_PAGES\",\n                    \"embeddable\": false,\n                    \"publicDomain\": false,\n                    \"textToSpeechPermission\": \"ALLOWED\",\n                    \"epub\": {\n                        \"isAvailable\": true\n                    },\n                    \"pdf\": {\n                        \"isAvailable\": true\n                    },\n                    \"webReaderLink\": \"http://play.google.com/books/reader?id=RQ6xDwAAQBAJ&hl=&source=gbs_api\",\n                    \"accessViewStatus\": \"NONE\",\n                    \"quoteSharingAllowed\": false\n                },\n                \"searchInfo\": {\n                    \"textSnippet\": \"The second edition of this international fan favorite includes a brand-new chapter on input validation, Gmail and Google Sheets automations, tips for updating CSV files, and more.\"\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Bookmarks",
+			"item": [
+				{
+					"name": "Get my bookmarks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/api/v1/bookmarks/my-bookmarks?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"bookmarks",
+								"my-bookmarks"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						},
+						"description": "### Overview\n\nThis API endpoint allows authenticated users to retrieve a list of their bookmarks. The bookmarks are paginated to facilitate easier navigation and management.\n\n### HTTP Request\n\n`GET http://localhost:3333/api/v1/bookmarks/my-bookmarks`\n\n### Query Parameters\n\n| Parameter | Description | Required | Type | Default |\n| --- | --- | --- | --- | --- |\n| `page` | Specifies the page number of the bookmark list to retrieve. | No | integer | `1` |\n| `limit` | Specifies the number of bookmarks per page. | No | integer | `10` |"
+					},
+					"response": [
+						{
+							"name": "List of user''s bookmarks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/api/v1/bookmarks/my-bookmarks?page=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"bookmarks",
+										"my-bookmarks"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "520"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Apr 2024 09:48:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Bookmarks retrieved successfully\",\n    \"bookmarks\": {\n        \"meta\": {\n            \"total\": 2,\n            \"perPage\": 10,\n            \"currentPage\": 1,\n            \"lastPage\": 1,\n            \"firstPage\": 1,\n            \"firstPageUrl\": \"/?page=1\",\n            \"lastPageUrl\": \"/?page=1\",\n            \"nextPageUrl\": null,\n            \"previousPageUrl\": null\n        },\n        \"data\": [\n            {\n                \"id\": 1,\n                \"userId\": 1,\n                \"bookId\": \"b-2oDwAAQBAJ\",\n                \"createdAt\": \"2024-04-12T09:38:33.000+00:00\",\n                \"updatedAt\": \"2024-04-12T09:38:33.000+00:00\"\n            },\n            {\n                \"id\": 2,\n                \"userId\": 1,\n                \"bookId\": \"6yPonAAACAAJ\",\n                \"createdAt\": \"2024-04-12T09:39:30.000+00:00\",\n                \"updatedAt\": \"2024-04-12T09:39:30.000+00:00\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Add bookmark",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/api/v1/bookmarks/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"bookmarks",
+								""
+							]
+						},
+						"description": "### Overview\n\nThis API endpoint allows authenticated users to add a bookmark for a specific book. The operation checks if the user is logged in and if the book has not been bookmarked by the user previously.\n\n### HTTP Request\n\n`POST http://localhost:3333/api/v1/bookmarks/{bookId}`\n\n### URL Parameter\n\n| Parameter | Description | Required | Type |\n| --- | --- | --- | --- |\n| `bookId` | The unique identifier for the book to be bookmarked. | Yes | string |"
+					},
+					"response": [
+						{
+							"name": "Bookmark already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/api/v1/bookmarks/b-2oDwAAQBAJ",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"bookmarks",
+										"b-2oDwAAQBAJ"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "37"
+								},
+								{
+									"key": "content-type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Apr 2024 09:38:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Bookmark already exists for this user"
+						},
+						{
+							"name": "Bookmark added successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/api/v1/bookmarks/6yPonAAACAAJ",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"bookmarks",
+										"6yPonAAACAAJ"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "212"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Apr 2024 09:39:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Bookmark added successfully\",\n    \"data\": {\n        \"bookmark\": {\n            \"userId\": 1,\n            \"bookId\": \"6yPonAAACAAJ\",\n            \"createdAt\": \"2024-04-12T09:39:30.283+00:00\",\n            \"updatedAt\": \"2024-04-12T09:39:30.283+00:00\",\n            \"id\": 2\n        }\n    }\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3333/api/v1/bookmarks/6yPonAAACAAJ",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3333",
+									"path": [
+										"api",
+										"v1",
+										"bookmarks",
+										"6yPonAAACAAJ"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "61"
+								},
+								{
+									"key": "content-type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Apr 2024 09:43:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Unauthorized. You must be logged in to perform this operation"
+						}
+					]
+				},
+				{
+					"name": "Delete bookmark",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/api/v1/bookmarks/b-2oDwAAQBAJ",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"bookmarks",
+								"b-2oDwAAQBAJ"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "root page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/api/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
