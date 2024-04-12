@@ -23,7 +23,7 @@ export default class BooksController {
       // Try to get cached data
       const cachedData = await redis.get(cacheKey)
       if (cachedData) {
-        return response.status(200).json(JSON.parse(cachedData))
+        return response.ok(JSON.parse(cachedData))
       }
 
       // If no redis, make API request
@@ -46,7 +46,7 @@ export default class BooksController {
       // cache the new data
       await redis.set(cacheKey, JSON.stringify(booksData), 'EX', 1800) // 1800 seconds = 30 minutes
 
-      return response.status(200).json(booksData)
+      return response.ok(booksData)
     } catch (error) {
       console.error(error)
       return response.status(error.response?.status || 500).json({
