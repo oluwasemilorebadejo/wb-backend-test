@@ -15,6 +15,35 @@ What things you need to install the software and how to install them:
 - MySQL Database
 - Redis
 
+### Setting up MySQL Database
+
+Before you can run the application, you need to set up a MySQL database:
+
+1. **Install MySQL Server**: Ensure that MySQL Server is installed on your local machine or use a cloud-based instance.
+2. **Create a Database**: Create a new database for the project using the MySQL command line or a GUI tool like MySQL Workbench.
+
+   ```sql
+   CREATE DATABASE your_database_name
+   ```
+
+### Setting up Redis
+
+Setting up Redis for session management and caching:
+
+1. **Install Redis**: Download and install Redis from the official site or use a package manager.
+   - For Windows: Download the latest Redis .msi installer from the Redis website.
+   - For macOS/Linux: Typically, you can install Redis using Homebrew or apt-get:
+
+```bash
+brew install redis  # macOS sudo apt-get install redis-server # Ubuntu Linux
+```
+
+2. **Run Redis Server**: Start the Redis server using the default configuration:
+
+```bash
+   redis-server
+```
+
 ### Installing
 
 A step-by-step series of examples that tell you how to get a development environment running:
