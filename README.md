@@ -43,7 +43,7 @@ A step-by-step series of examples that tell you how to get a development environ
 PORT=3333
 HOST=localhost
 NODE_ENV=development
-APP_KEY=[YourAppKey]
+APP_KEY=MqNXODauI3taIOJC5sf76ioyrLCH06Vi
 DB_HOST=[YourDatabaseHost]
 DB_PORT=3306
 DB_USER=[YourDatabaseUser]
